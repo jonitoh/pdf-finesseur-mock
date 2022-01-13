@@ -47,6 +47,7 @@ body {
 /*** 2.0 - Body ***/
 body {
     font-family: Arial, sans-serif;
+    color: var(--color-black);
     background-color: var(--color-background-light);
 }
 
