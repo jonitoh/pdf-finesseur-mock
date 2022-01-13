@@ -1,18 +1,34 @@
+/*
+*  CSS TABLE OF CONTENTS
+*   
+*  0.0 - Variables
+*  1.0 - Reset
+*  2.0 - Body
+*  3.0 - App
+*    3.1 - Structure
+*    3.2 - Navbar
+*    3.3 - Grid
+*    3.4 - Card
+*  4.0 - Empty App
+*  5.0 - Media Queries
+*/
+
+/*** 0.0 - Variables ***/
 :root {
-    /*   color variables */
-    --clr-primary: #6aeeb5;
-    --clr-primary-hover: #29e6a7;
-    --clr-primary-dark: #039d69;
-    --clr-gray100: #f0f7f8;
-    --clr-gray200: #cfd8dc;
-    --clr-gray300: #a7b7be;
-    --clr-gray400: #6b7e86;
-    --clr-gray500: #425a65;
+    /* Colors */
+    --color-background-light: #ecfcff;
+    --color-primary-light: #b2fcff;
+    --color-primary-hover: #3edbf0;
+    --color-primary-dark: #5edfff;
+    --color-background-dark: #3e64ff;
+    --color-white: #e3e8e8;
+    --color-black: #2e3838;
   
-    /*   border radius */
-    --radius: 0.2rem;
+    /* Border */
+    --radius: 0.5rem;
 }
-  
+
+/*** 1.0 - Reset ***/
 *,
 *::before,
 *::after {
@@ -22,39 +38,57 @@
 }
 
 html,
-body,
-#root {
+body {
     height:100%;
     margin: 0;
     padding: 0;
 }
 
+/*** 2.0 - Body ***/
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--clr-gray100);
+    background-color: var(--color-background-light);
 }
 
+/*** 3.0 - App ***/
+/*** 3.1 - Structure ***
+* The app has the navbar sticked to the bottom
+* in mobile size and sticked to the left otherwise.
+*/
 .app {
     display: flex;
     flex-direction: row;
-    background-color: var(--clr-gray200);
+    background-color: var(--color-background-light);
     height: 100%;
     overflow: hidden;
 }
 
-/*-- NAVBAR --*/
+/*-- navbar area --*/
 .app__nav {
     flex: 10%;
     order: -1;
-    margin: .25rem;
-    border-radius: var(--radius);
     display: flex; 
 }
 
-.nav__list {
-    background: var(--clr-gray300);
-    box-shadow: 0px 0px 10px var(--clr-gray400);
-    padding: .5rem;
+/*-- main area --*/
+.app__main {
+    flex: 90%;
+    display: flex;
+    justify-content: space-around;
+    overflow: auto;
+}
+
+/*** 3.2 - Navbar ***
+* custom navbars.
+*/
+/*** 3.2.1 - Simple navbar ***
+* This is a simple navbar with no sub-menu.
+*/
+.navbar-simple .navbar__list {
+    border-radius: var(--radius);
+    background: var(--color-primary-light);
+    box-shadow: 1px 0px .1rem var(--color-primary-dark);
+    padding: 0rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,51 +99,40 @@ body {
     min-width: 5rem;
 }
   
-.nav__item {
+.navbar-simple .navbar__item {
     list-style: none;
     font-size: 0.7rem;
     text-align: center;
     transition: all 200ms ease-in;
 }
 
-.nav__item img {
-    fill: var(--clr-gray400);
+.navbar-simple .navbar__item img {
+    /*fill: var(--color-primary-dark);*/
     width: 2rem;
     transition: all 200ms ease-in;
 }
 
-.nav__item img:hover {
-    fill: var(--clr-gray500);
+.navbar-simple .navbar__item img:hover {
+    /*fill: var(--color-primary-hover);*/
 }
 
-.nav__item a {
-    color: var(--clr-gray400);
+.navbar-simple .navbar__item a {
+    color: var(--color-black);
     text-decoration: none;
 }
 
-.nav__item a:hover {
-    color: var(--clr-gray500);
+.navbar-simple .navbar__item a:hover {
+    color: var(--color-primary-hover);
 }
 
-/*-- MAIN AREA --*/
-.app__main {
-    /*border: 1px solid black;*/
-    flex: 90%;
-    padding: .25rem;
-    display: flex;
-    justify-content: space-around;
-    /*justify-content: center;
-    align-content: center;*/
-    overflow: auto;
-}
+/*** 3.2.2 - Navbar with sub-menu ***
+* This is a simple navbar with potential sub-menus.
+*/
 
-.app__placeholder {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
+/* EMPTY */
+
+/*** 3.3 - Grid ***/
+
 
 /*-- GRID --*/
 .grid-container {
@@ -117,7 +140,8 @@ body {
     display: flex;
     /*justify-content: start;*/
     flex-wrap: wrap;
-    justify-content: space-around; 
+    justify-content: space-around;
+    padding: .25rem;
 }
   
 .grid-item-wrapper {
@@ -235,29 +259,40 @@ body {
     font-size: 15px;
 }
 
+/*** 4.0 - Empty App ***/
+.app__placeholder {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
-/* media screen */
+/*** 5.0 - Media Queries ***/
 @media screen and (max-width: 550px) {
+    /*** 3.1 - Structure ***/
     .app {
         flex-direction: column;
     }
-    
-    /*-- NAVBAR --*/
+
+    /*-- navbar area --*/
     .app__nav {
-        order: 0;
         flex: 0;
+        order: 0;
     }
 
-    .nav__list {
+    /*-- main area --*/
+    .app__main {
+        flex: 80%;
+    }
+
+    /*** 3.2 - Navbar ***/
+    .navbar-simple .navbar__list {
+        box-shadow: 0px -1px .1rem var(--color-primary-dark);
         flex-direction: row;
         width: 100vw;
         min-height: 5rem;
         height: auto;
         padding: 1rem;
-    }
-
-    /*-- MAIN AREA --*/
-    .app__main {
-        flex: 80%;
     }
 }
