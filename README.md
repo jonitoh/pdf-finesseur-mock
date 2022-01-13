@@ -8,6 +8,7 @@ La barre de navigation responsive est inspirée du codepen suivant [par là](htt
 
 L'UI d'une page est basée sur le codepen suivant [par ici](https://codepen.io/Gelsot/pen/xpGYyd) et un article sur la propiété flexbox [space-between](https://la-cascade.io/guide-de-flexbox-space-between-loublie/)
 
+Le badge pour les notifications est inspirée de l'article suivant [par-là](https://dev.to/murtuzaalisurti/how-to-create-a-notification-badge-with-css-only-2nf8)
 
 La palette de couleur est fortement inspirée de [celle-ci](https://colorhunt.co/palette/ecfcffb2fcff5edfff3e64ff)
 
